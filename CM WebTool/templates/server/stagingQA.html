@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Staging/QAtest</h1>
+    <div class="content">
+      <h3>Staging_QATest_a(ded4457)</h3>
+        <div>
+          <h5> Server</h5>
+          <input type="button" id="btn-start" value="Start" /> 
+          <input type="button" id="btn-stop" value="Stop" /> 
+          <input type="button" id="btn-restart" value="Restart" /> 
+          <input type="button" id="btn-reload" value="Reload" /> 
+          <button onclick="location.href='{{ url_for('start') }}'">Run</button>
+          <br/>
+              <textarea id="text" style="width: 1000px;height: 500px;"> 
+                  production logs contents 
+                  production logs contents production logs contents 
+                  production logs contents 
+                  production logs contents 
+                  production logs contents 
+
+                  production logs contents 
+
+                  production logs contents 
+              </textarea> 
+              <br/> 
+              <input type="button" id="btn" value="Download" />  
+              <script> 
+                  function download(file, text) { 
+                    
+                      //creating an invisible element 
+                      var element = document.createElement('a'); 
+                      element.setAttribute('href',  
+                      'data:text/plain;charset=utf-8, ' 
+                      + encodeURIComponent(text)); 
+                      element.setAttribute('download', file); 
+                    
+                      // Above code is equivalent to 
+                      // <a href="path of file" download="file name"> 
+                    
+                      document.body.appendChild(element); 
+                    
+                      //onClick property 
+                      element.click(); 
+                    
+                      document.body.removeChild(element); 
+                  } 
+                    
+                  // Start file download. 
+                  document.getElementById("btn") 
+                  .addEventListener("click", function() { 
+                      // Generate download of hello.txt  
+                      // file with some content 
+                      var text = document.getElementById("text").value; 
+                      var filename = "log.txt"; 
+                    
+                      download(filename, text); 
+                  }, false); 
+              </script>
+        </div> 
+        <div>
+            <h5> Worksync</h5>
+            <input type="button" id="btn-sync-start" value="Start" /> 
+            <input type="button" id="btn-sync-stop" value="Stop" /> 
+            <input type="button" id="btn-sync-restart" value="Restart" /> 
+            <br/>
+                <textarea id="text-sync" style="width: 1000px;height: 500px;"> 
+                    production logs contents 
+                    production logs contents production logs contents 
+                    production logs contents 
+                    production logs contents 
+                    production logs contents 
+            
+                    production logs contents 
+            
+                    production logs contents 
+                </textarea> 
+                <br/> 
+                <input type="button" id="btn-sync" value="Download" />  
+                <script> 
+                   // Start file download. 
+                   document.getElementById("btn-sync") 
+                   .addEventListener("click", function() { 
+                       // Generate download of hello.txt  
+                       // file with some content 
+                       var text = document.getElementById("text-sync").value; 
+                       var filename = "logsync.txt"; 
+                     
+                       download(filename, text); 
+                   }, false); 
+                </script> 
+            
+        </div>
+
+        <div>
+            <h5> Workpvp</h5>
+            <input type="button" id="btn-pvp-start" value="Start" /> 
+            <input type="button" id="btn-pvp-stop" value="Stop" /> 
+            <input type="button" id="btn-pvp-restart" value="Restart" /> 
+            <br/>
+                <textarea id="text-pvp" style="width: 1000px;height: 500px;"> 
+                    production logs contents 
+                    production logs contents production logs contents 
+                    production logs contents 
+                    production logs contents 
+                    production logs contents 
+            
+                    production logs contents 
+            
+                    production logs contents 
+                </textarea> 
+                <br/> 
+                <input type="button" id="btn-pvp" value="Download" />  
+                <script> 
+                   // Start file download. 
+                   document.getElementById("btn-pvp") 
+                   .addEventListener("click", function() { 
+                       // Generate download of hello.txt  
+                       // file with some content 
+                       var text = document.getElementById("text-pvp").value; 
+                       var filename = "logpvp.txt"; 
+                     
+                       download(filename, text); 
+                   }, false); 
+                </script>
+        </div> 
+
+        <div>
+            <h3>Staging_QATest_b(ded4458)</h3>
+            <h5> Server</h5>
+            <input type="button" id="btn-b-start" value="Start" /> 
+            <input type="button" id="btn-b-stop" value="Stop" /> 
+            <input type="button" id="btn-b-restart" value="Restart" /> 
+                <textarea id="textb" style="width: 1000px;height: 500px;"> 
+                    production b logs contents 
+                    production b logs contents production logs contents 
+                    production b logs contents 
+                    production b logs contents 
+                    production b logs contents 
+      
+                    production b logs contents 
+      
+                    production b logs contents 
+                </textarea> 
+                <br/> 
+                <input type="button" id="btn-b" value="Download" />  
+                <script> 
+                    // Start file download. 
+                    document.getElementById("btn-b") 
+                    .addEventListener("click", function() { 
+                        // Generate download of hello.txt  
+                        // file with some content 
+                        var text = document.getElementById("textb").value; 
+                        var filename = "logb.txt"; 
+                      
+                        download(filename, text); 
+                    }, false); 
+                </script> 
+
+        </div>  
+
+    </div>
+    <hr>
+  
+{% endblock content %}
